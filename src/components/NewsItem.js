@@ -1,38 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react'
 
+const NewsItem = (props) => {
 
-export class NewsItem extends Component {
+    let { title, description, imageUrl, news, author, date, source } = props;
 
-    render() {
-        let { title, description, imageUrl, news, author, date, source } = this.props;
-
-        return (
-            <div className="my-3">
-                <div className="card" style={{ width: '18rem' }}>
-                    <div style={
-                        {
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            position: 'absolute',
-                            right: '0'
-                        }
-                    }>
-                        <span className="badge rounded-pill bg-danger">
-                            {source}</span>
-                    </div>
-                    <img src={!imageUrl ? "https://img.onmanorama.com/content/dam/mm/en/news/india/images/2023/10/1/nps-protest-ramlila-maidan.jpg" : imageUrl} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{title}
-                        </h5>
-                        <p className="card-text">{description}</p>
-                        <p className="card-text"><small className="text-muted">By {!author ? "Unknown" : author} on {new Date(date).toGMTString()
-                        }</small></p>
-                        <a rel="noreferrer" href={news} target="_blank" className="btn btn-sm btn-dark">Read More</a>
-                    </div>
+    return (
+        <div className="my-3">
+            <div className="card" style={{ width: '18rem' }}>
+                <div style={
+                    {
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        position: 'absolute',
+                        right: '0'
+                    }
+                }>
+                    <span className="badge rounded-pill bg-danger">
+                        {source}</span>
+                </div>
+                <img src={!imageUrl ? "https://img.onmanorama.com/content/dam/mm/en/news/india/images/2023/10/1/nps-protest-ramlila-maidan.jpg" : imageUrl} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{title}
+                    </h5>
+                    <p className="card-text">{description}</p>
+                    <p className="card-text"><small className="text-muted">By {!author ? "Unknown" : author} on {new Date(date).toGMTString()
+                    }</small></p>
+                    <a rel="noreferrer" href={news} target="_blank" className="btn btn-sm btn-dark">Read More</a>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
+
 }
 
 export default NewsItem
